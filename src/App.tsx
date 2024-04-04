@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import { store } from "@/app/store";
+import { Clock } from "@/features/clock/Clock";
+import OldClock from "./OldClock";
 
-function App() {
-  return (
+const App: React.FC = () => (
+  <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <OldClock />
+      <div>상단 OldClock / 하단 Clock</div>
+      <Clock />
     </div>
-  );
-}
+  </Provider>
+);
 
 export default App;
